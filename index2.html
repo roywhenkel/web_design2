@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design - Simple Lecture</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #1f2937;
+      --light: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #3b82f6);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .demo-box {
+      background: #f1f5f9;
+      border: 3px dashed #94a3b8;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+      color: #475569;
+    }
+
+    /* Responsive Examples */
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .color-box {
+      height: 150px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    /* Media Queries Examples */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .demo-box {
+        font-size: 1rem;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    .highlight {
+      background: #fef3c7;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Responsive Web Design</h1>
+      <p class="subtitle">Making websites look great on every device</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Section 1: What is Responsive Design -->
+    <section class="section">
+      <h2>What is Responsive Design?</h2>
+      <div class="demo-box">
+        Responsive design means your website automatically adapts its layout, 
+        images, and content to provide the best user experience on <strong>any screen size</strong> — 
+        from large desktop monitors to small mobile phones.
+      </div>
+    </section>
+
+    <!-- Key Principles -->
+    <section class="section" style="background: #f8fafc;">
+      <h2>Core Principles of Responsive Design</h2>
+      <div class="grid example-grid">
+        <div class="card">
+          <h3>1. Fluid Grids</h3>
+          <p>Use percentages (%) instead of fixed pixels (px) so elements scale with the screen size.</p>
+        </div>
+        <div class="card">
+          <h3>2. Flexible Images</h3>
+          <p>Images should never break the layout. Use <span class="highlight">max-width: 100%</span></p>
+        </div>
+        <div class="card">
+          <h3>3. Media Queries</h3>
+          <p>CSS rules that apply only at specific screen widths using <span class="highlight">@media</span></p>
+        </div>
+        <div class="card">
+          <h3>4. Mobile-First</h3>
+          <p>Design for mobile first, then enhance for larger screens (recommended approach).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section class="section">
+      <h2>Live Responsive Demo</h2>
+      <div class="example-grid">
+        <div class="color-box" style="background: #2563eb;">Desktop (1200px+)</div>
+        <div class="color-box" style="background: #3b82f6;">Tablet (768px - 1024px)</div>
+        <div class="color-box" style="background: #60a5fa;">Mobile (≤ 480px)</div>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; color: #64748b;">
+        Resize your browser window to see how the layout changes automatically!
+      </p>
+    </section>
+
+    <!-- Important CSS Techniques -->
+    <section class="section" style="background: #f8fafc;">
+      <h2>Essential CSS for Responsive Design</h2>
+      <div class="grid example-grid">
+        <div class="card">
+          <h4>Viewport Meta Tag</h4>
+          <pre style="background:#1e2937;color:#e2e8f0;padding:1rem;border-radius:8px;font-size:0.9rem;">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+          </pre>
+        </div>
+        <div class="card">
+          <h4>Flexible Images</h4>
+          <pre style="background:#1e2937;color:#e2e8f0;padding:1rem;border-radius:8px;font-size:0.9rem;">
+img {
+  max-width: 100%;
+  height: auto;
+}
+          </pre>
+        </div>
+        <div class="card">
+          <h4>Media Query Example</h4>
+          <pre style="background:#1e2937;color:#e2e8f0;padding:1rem;border-radius:8px;font-size:0.9rem;">
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+          </pre>
+        </div>
+        <div class="card">
+          <h4>CSS Grid / Flexbox</h4>
+          <p>Use modern layout systems instead of floats for better responsiveness.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p><strong>Responsive Design Lecture</strong> — Simple &amp; Practical</p>
+      <p style="margin-top: 1rem; opacity: 0.8;">
+        Pro Tip: Always test your design on real mobile devices, not just by resizing the browser.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
